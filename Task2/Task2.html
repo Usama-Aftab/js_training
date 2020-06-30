@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--css-->
+<style>
+    *{
+      box-sizing: border-box;
+    }
+    #search_para
+    {
+     color:black;
+    }
+    .highlight
+    {
+     color:green;
+     font-weight:bold;
+    }
+    #search_text{
+
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;}
+
+    #wrapper{
+        width: 100%;
+      font-size: 20px;
+      padding: 12px 100px 50px 100px;
+      border: 5px solid #000000;
+      margin-bottom: 50px;}
+    
+    </style>
+
+
+<!--HTML code-->
+<body>
+<div id="wrapper">
+<input type="text" id="search_text" placeholder="Search " title="search a text">
+<p id="counter"> Count words</p>
+<div>
+<p id="search_para">The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages.</p>
+</div>
+</div>
+</body>
+
+<!--script-->
+
+
+
+<script>
+    document.addEventListener( 'DOMContentLoaded',function(){
+     var searchpara=document.getElementById("search_para").innerHTML;
+     searchpara=searchpara.toString();
+     document.getElementById("search_text").onkeyup =function ()
+     {highlight_word(searchpara)};},false);
+    
+    function highlight_word(searchpara)
+    {
+     var text=document.getElementById("search_text").value;
+     if(text)
+     {
+      var pattern=new RegExp("("+text+")", "gi");
+      var new_text=searchpara.replace(pattern, "<span class='highlight'>"+text+"</span>");
+      document.getElementById("search_para").innerHTML=new_text;
+      
+      
+      //counter is not working 
+      var count=document.getElementById("search_text").value;
+       count=count.match( /\w+/g );
+       document.getElementById("counter").innerHTML="Matched Words:"+count.length;
+     
+      
+     }
+     else{
+        document.getElementById("search_para").innerHTML=searchpara;
+    
+     }
+     
+    }
+   
+    </script>
+</html>

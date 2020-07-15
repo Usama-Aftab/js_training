@@ -5,44 +5,44 @@
 <script type="text/javascript">
 let str1 = prompt("Please enter a string", "");
 
-           function unique_char(str1)
-            {
+    function unique_char(str1)
+        {
             let str=str1;
             let uniql="";
             for (let x=0;x < str.length;x++)
             {
 
-                if(uniql.indexOf(str.charAt(x))==-1)
-                {
+            if(uniql.indexOf(str.charAt(x))==-1)
+            {
                 uniql += str[x];  
                 
                 }
             }
             alert(uniql);  
-            }  
+    }  
 
-            unique_char(str1);
+        unique_char(str1);
 
            
 //second fucntion
 let str2 = prompt("Please enter a string", "");
-            function unique_char(str2)
-            {
-            let reverse=str2;
-            let uniqreverse="";
-            for (let x=reverse.length;x >=0;x--)
-                    {
+    function unique_char(str2)
+    {
+        let reverse=str2;
+        let uniqreverse="";
+        for (let x=reverse.length;x >=0;x--)
+        {
 
-                        if(uniqreverse.indexOf(reverse.charAt(x))==-1)
-                        {
-                        uniqreverse += reverse[x]; 
-                    }
-            
-                    }
+            if(uniqreverse.indexOf(reverse.charAt(x))==-1)
+            {
+                uniqreverse += reverse[x]; 
+            }
         
-            alert(uniqreverse);  
-            }  
-            unique_char(str2);
+        }
+        
+        alert(uniqreverse);  
+    }  
+    unique_char(str2);
             
 
 

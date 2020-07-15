@@ -53,32 +53,34 @@
 
 <script>
     document.addEventListener( 'DOMContentLoaded',function(){
-     var searchpara=document.getElementById("search_para").innerHTML;
+     let searchpara=document.getElementById("search_para").innerHTML;
      searchpara=searchpara.toString();
      document.getElementById("search_text").onkeyup =function ()
      {highlight_word(searchpara)};},false);
     
     function highlight_word(searchpara)
     {
-     var text=document.getElementById("search_text").value;
-     if(text)
-     {
-      var pattern=new RegExp("("+text+")", "gi");
-      var new_text=searchpara.replace(pattern, "<span class='highlight'>"+text+"</span>");
+    let text=document.getElementById("search_text").value;
+    let count =0;
+    if(text)
+    {
+          
+      let pattern=new RegExp("("+text+")", "gi");
+
+        
+        const x= searchpara.replace(pattern, function(match){
+        count+=1;
+        return "<span class='highlight'>"+text+"</span>";
+      });
+      let new_text=searchpara.replace(pattern, "<span class='highlight'>"+text+"</span>");
       document.getElementById("search_para").innerHTML=new_text;
-      
-      
-      //counter is not working 
-      var count=document.getElementById("search_text").value;
-       count=count.match( /\w+/g );
-       document.getElementById("counter").innerHTML="Matched Words:"+count.length;
-     
-      
-     }
-     else{
-        document.getElementById("search_para").innerHTML=searchpara;
+      document.getElementById("counter").innerHTML=count;
+        
+    }
+    else{
+    document.getElementById("search_para").innerHTML=searchpara;
     
-     }
+    }
      
     }
    

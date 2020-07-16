@@ -1,0 +1,68 @@
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--css-->
+      <style>
+         *{
+         box-sizing: border-box;
+         }
+         #colorBox
+         {
+         background-color:aqua;
+         color:black;
+         height: 300px;
+         width:100%;
+         }
+         #timetaken{
+         background-position: center;
+         background-repeat: no-repeat;
+         width: 100%;
+         font-size: 16px;
+         padding: 12px 20px 12px 40px;
+         border: 1px solid #ddd;
+         margin-bottom: 12px;}
+         #changer{
+         width:150px;
+         height:50px;
+         font-size: 15px;
+         padding: 5px 10px 5px 10px;
+         border: 1px solid #ddd;
+         margin-bottom: 12px;
+         color: whitesmoke;
+         background-color: #4db976;
+         }
+         #wrapper{
+         width: 100%;
+         font-size: 20px;
+         padding: 12px 100px 50px 100px;
+         border: 5px solid #000000;
+         margin-bottom: 50px;}
+      </style>
+      <!--HTML code-->
+   <body>
+      <div id="wrapper">
+         <input type="text" id="timetaken" placeholder="Please input seconds " title="Please enter any integer">
+         <button id="changer" > Change Color</button>
+         <div>
+            <div id="colorBox"></div>
+         </div>
+      </div>
+   </body>
+   <!--script-->
+   <script>
+      function myFunction() {
+          let timeTaken=document.getElementById("timetaken").value;
+          let timeinSeconds=timeTaken*1000;
+          myVar = setTimeout(setBackground, timeinSeconds);
+      }
+          const setBackground = () => {
+          const randomColor = Math.floor(Math.random()*16777215).toString(16);
+          let box = document.getElementById("colorBox");
+          box.style.backgroundColor = "#" + randomColor;
+          
+          }
+      changer.addEventListener("click", myFunction);
+         
+          
+   </script>
+</html>
